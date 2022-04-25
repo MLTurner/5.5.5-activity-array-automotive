@@ -11,24 +11,36 @@ class NewCar extends VehicleModule {
         this.maximumSpeed = "160";
         this.fuel = "10";
         this.scheduleService = "false"
-    }
+        }
+    }    
 }
 
-loadPassenger(num) {
+
+function loadPassenger(num){
     if (this.passenger < this.maximumPassengers) {
-    return availableRoom == "false";
+    if ((num + this.passenger) <= this.maximumPassengers){
+        this.passenger = num;
+        return this.passenger;
+        } else {
+        return availableRoom == "false";
+        }
     }
 }
 
-start() {
-    if (this.fuel > 0)
+
+function start(){
+    if (this.fuel > 0){
     return start == "true";
+    }
 }
 
-scheduleService(mileage) {
-    if (this.mileage > 30000)
-    return this.scheduleService == "true";
+
+function scheduleService(mileage){
+    if (this.mileage > 30000){
+    return this.scheduleService == "true";  
+    }   
 }
+
 
 let v = new NewCar("Mecury", "Sedan", "1965", "silver", 29000);
 console.log(v.make)
@@ -37,3 +49,6 @@ console.log(v.make)
 v.start()
 v.loadPassenger(5)
 v.scheduleService()
+
+
+console.log(v)
